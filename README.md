@@ -1,6 +1,7 @@
 # Hi, I'm Dario Cositore 👋
 
 [![Website](https://img.shields.io/badge/website-dariocositore.com-0A66C2?style=flat-square&logo=google-chrome&logoColor=white)](https://dariocositore.com)
+[![Portfolio](https://img.shields.io/badge/portfolio-GitHub%20Pages-222222?style=flat-square&logo=githubpages&logoColor=white)](https://dario-cositore.github.io/dario-cositore/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-dario--cositore-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dario-cositore)
 [![Twitter/X](https://img.shields.io/badge/X-@DarioCositore-000000?style=flat-square&logo=x&logoColor=white)](https://twitter.com/DarioCositore)
 [![Email](https://img.shields.io/badge/email-elitza%40gapfeed.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:elitza@gapfeed.com)
