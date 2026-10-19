@@ -41,6 +41,12 @@ I'm a software engineer and founder based in **Italy**, building **autonomous AI
 | [**durable-workflows**](https://github.com/dario-cositore/durable-workflows) | OpenClaw addon adding Mistral-style durable execution — long-running tasks that survive crashes & restarts. | JavaScript |
 | [**url-to-markdown-rust**](https://github.com/dario-cositore/url-to-markdown-rust) | Website → Markdown converter. | Rust |
 
+## 💬 Quote of the day
+
+<!--QUOTE-START-->
+> "Code is like humor. When you have to explain it, it's bad." — Cory House
+<!--QUOTE-END-->
+
 ## 📊 GitHub stats
 
 <p align="center">

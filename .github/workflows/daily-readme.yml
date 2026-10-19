@@ -1,0 +1,42 @@
+name: Daily README update
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # every day at 08:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rotate-quote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rotate quote of the day
+        run: |
+          python3 - <<'PY'
+          import random, re
+          quotes = [l.strip() for l in open('quotes.txt') if l.strip()]
+          pick = random.choice(quotes)
+          text = open('README.md').read()
+          text = re.sub(
+              r'<!--QUOTE-START-->.*?<!--QUOTE-END-->',
+              f'<!--QUOTE-START-->\n> {pick}\n<!--QUOTE-END-->',
+              text,
+              count=1,
+              flags=re.S,
+          )
+          open('README.md', 'w').write(text)
+          PY
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: rotate quote of the day"
+            git push
+          fi
