@@ -45,7 +45,7 @@ I'm a software engineer and founder based in **Italy**, building **autonomous AI
 ## 💬 Quote of the day
 
 <!--QUOTE-START-->
-> "Code is like humor. When you have to explain it, it's bad." — Cory House
+> "Programs must be written for people to read, and only incidentally for machines to execute." — Harold Abelson
 <!--QUOTE-END-->
 
 ## 📊 GitHub stats
