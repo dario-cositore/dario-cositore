@@ -45,7 +45,7 @@ I'm a software engineer and founder based in **Italy**, building **autonomous AI
 ## 💬 Quote of the day
 
 <!--QUOTE-START-->
-> "Programs must be written for people to read, and only incidentally for machines to execute." — Harold Abelson
+> "Debugging is twice as hard as writing the code in the first place." — Brian Kernighan
 <!--QUOTE-END-->
 
 ## 📊 GitHub stats
