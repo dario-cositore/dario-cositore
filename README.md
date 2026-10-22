@@ -45,7 +45,7 @@ I'm a software engineer and founder based in **Italy**, building **autonomous AI
 ## 💬 Quote of the day
 
 <!--QUOTE-START-->
-> "Debugging is twice as hard as writing the code in the first place." — Brian Kernighan
+> "If you don't finish, nothing else matters." — Unknown
 <!--QUOTE-END-->
 
 ## 📊 GitHub stats
