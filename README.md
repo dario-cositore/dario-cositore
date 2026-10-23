@@ -45,7 +45,7 @@ I'm a software engineer and founder based in **Italy**, building **autonomous AI
 ## 💬 Quote of the day
 
 <!--QUOTE-START-->
-> "If you don't finish, nothing else matters." — Unknown
+> "Premature optimization is the root of all evil." — Donald Knuth
 <!--QUOTE-END-->
 
 ## 📊 GitHub stats
