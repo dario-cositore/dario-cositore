@@ -45,7 +45,7 @@ I'm a software engineer and founder based in **Italy**, building **autonomous AI
 ## 💬 Quote of the day
 
 <!--QUOTE-START-->
-> "Code is like humor. When you have to explain it, it's bad." — Cory House
+> "If you don't finish, nothing else matters." — Unknown
 <!--QUOTE-END-->
 
 ## 📊 GitHub stats
