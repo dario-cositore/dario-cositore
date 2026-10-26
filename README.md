@@ -45,7 +45,7 @@ I'm a software engineer and founder based in **Italy**, building **autonomous AI
 ## 💬 Quote of the day
 
 <!--QUOTE-START-->
-> "If you don't finish, nothing else matters." — Unknown
+> "Deleted code is debugged code." — Jeff Sickel
 <!--QUOTE-END-->
 
 ## 📊 GitHub stats
