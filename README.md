@@ -45,7 +45,7 @@ I'm a software engineer and founder based in **Italy**, building **autonomous AI
 ## 💬 Quote of the day
 
 <!--QUOTE-START-->
-> "The best error message is the one that never shows up." — Thomas Fuchs
+> "Measuring programming progress by lines of code is like measuring aircraft building progress by weight." — Bill Gates
 <!--QUOTE-END-->
 
 ## 📊 GitHub stats
