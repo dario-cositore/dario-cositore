@@ -61,6 +61,10 @@ Three principles guide everything I ship:
 | [**elitza-workshop**](https://github.com/dario-cositore/elitza-workshop) | Unified agent installer and hub for OpenClaw and Hermes Agent. | JavaScript |
 | [**OpenConnect**](https://github.com/dario-cositore/OpenConnect) | Turn any webpage into an MCP connector. *(on hold)* | Python |
 
+## Play
+
+[**Office Hustle**](https://dario-cositore.github.io/dario-cositore/office-game/) — a tiny HTML5 game. Run the office, type, caffeinate, yell "AI ENABLEMEEEEENT!", ship. Arrow keys + E.
+
 ## Quote of the day
 
 <!--QUOTE-START-->
