@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Code is like humor. When you have to explain it, it's bad." — Cory House
+> "Good code is its own best documentation." — Steve McConnell
 <!--QUOTE-END-->
 
 ## GitHub stats
