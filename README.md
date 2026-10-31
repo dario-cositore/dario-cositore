@@ -20,7 +20,7 @@
 
 ## About
 
-Solo AI consultant and builder, based in Castelleone, Italy, working remotely worldwide. Nine years across automation, training, and operations; the last two building on frontier models. I evaluate models, design agentic workflows, set governance, and train teams to run the system without me.
+Solo AI consultant and builder, based in Italy, working remotely worldwide. Nine years across automation, training, and operations; the last two building on frontier models. I evaluate models, design agentic workflows, set governance, and train teams to run the system without me.
 
 Three principles guide everything I ship:
 
