@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B3558,100:005AD6&height=200&section=header&text=Dario%20Cositore&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=AI%20enablement%20%C2%B7%20agentic%20systems%20%C2%B7%20Italy&descAlignY=58&descSize=16" alt="header" />
+  <img src="https://raw.githubusercontent.com/dario-cositore/dario-cositore/main/assets/miner.gif" alt="miner digging blocks" width="800" />
 </p>
 
 <p align="center">
