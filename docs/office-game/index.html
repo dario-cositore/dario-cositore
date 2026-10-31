@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Office Hustle — Dario Cositore</title>
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { background:#0d1117; color:#c9d1d9; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; }
+  header { padding:16px; text-align:center; }
+  h1 { font-size:1.4rem; background:linear-gradient(90deg,#58a6ff,#bc8cff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sub { color:#8b949e; font-size:.9rem; margin-top:4px; }
+  canvas { border:1px solid #30363d; border-radius:12px; background:#161b22; max-width:100%; }
+  .hud { display:flex; gap:24px; padding:12px; font-size:.9rem; }
+  .hud span { color:#58a6ff; font-weight:700; }
+  .controls { color:#8b949e; font-size:.8rem; padding:8px; text-align:center; max-width:600px; }
+  .msg { min-height:24px; color:#bc8cff; font-weight:600; padding:4px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Office Hustle</h1>
+  <div class="sub">Run the office. Type, caffeinate, enable, ship.</div>
+</header>
+<div class="hud">
+  <div>Score: <span id="score">0</span></div>
+  <div>Tasks: <span id="tasks">0</span>/8</div>
+  <div>Time: <span id="time">60</span>s</div>
+</div>
+<div class="msg" id="msg">Walk to a zone and press E to interact.</div>
+<canvas id="c" width="900" height="420"></canvas>
+<div class="controls">Arrow keys / WASD to move. E to interact. Touch: on-screen buttons below.</div>
+<div id="touch" style="display:none;gap:8px;padding:8px;">
+  <button onclick="keys.ArrowLeft=true" ontouchstart="keys.ArrowLeft=true" ontouchend="keys.ArrowLeft=false">◀</button>
+  <button onclick="keys.ArrowRight=true" ontouchstart="keys.ArrowRight=true" ontouchend="keys.ArrowRight=false">▶</button>
+  <button onclick="keys.ArrowUp=true" ontouchstart="keys.ArrowUp=true" ontouchend="keys.ArrowUp=false">▲</button>
+  <button onclick="keys.ArrowDown=true" ontouchstart="keys.ArrowDown=true" ontouchend="keys.ArrowDown=false">▼</button>
+  <button onclick="interact()">E</button>
+</div>
+<script>
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const W=canvas.width,H=canvas.height;
+const FLOOR=330;
+const keys={};
+let score=0,tasks=0,timeLeft=60,gameOver=false,started=false;
+const msgEl=document.getElementById('msg');
+const scoreEl=document.getElementById('score');
+const tasksEl=document.getElementById('tasks');
+const timeEl=document.getElementById('time');
+
+// touch detection
+if('ontouchstart' in window){ document.getElementById('touch').style.display='flex'; }
+
+addEventListener('keydown',e=>{ keys[e.key]=true; if(e.key==='e'||e.key==='E') interact(); });
+addEventListener('keyup',e=>{ keys[e.key]=false; });
+
+const zones=[
+  {id:'desk', x:120, y:FLOOR, w:160, h:90, color:'#5a4a3a', label:'Desk', action:'type', text:'Type type type...'},
+  {id:'kitchen', x:360, y:FLOOR, w:160, h:90, color:'#6a5a4a', label:'Kitchen', action:'coffee', text:'Ahhh coffee'},
+  {id:'ceo', x:620, y:FLOOR, w:200, h:90, color:'#5a4a6a', label:'CEO Office', action:'show', text:'Look at this!'},
+];
+
+const taskOrder=['desk','kitchen','desk','kitchen','ceo','desk','kitchen','desk'];
+let taskIndex=0;
+function currentTaskZone(){ return taskOrder[taskIndex % taskOrder.length]; }
+
+const player={x:100,y:FLOOR,speed:4,dir:1,action:null,actionTimer:0,bob:0};
+
+function drawOffice(){
+  // wall
+  ctx.fillStyle='#1a1f2b'; ctx.fillRect(0,0,W,H);
+  // floor
+  ctx.fillStyle='#2a3140'; ctx.fillRect(0,FLOOR,W,H-FLOOR);
+  ctx.strokeStyle='#3a4556'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,FLOOR); ctx.lineTo(W,FLOOR); ctx.stroke();
+  // zones
+  zones.forEach(z=>{
+    ctx.fillStyle=z.color; ctx.fillRect(z.x,FLOOR-60,z.w,60);
+    ctx.fillStyle='#0d1117'; ctx.fillRect(z.x+8,FLOOR-52,z.w-16,44);
+    ctx.fillStyle='#8b949e'; ctx.font='12px sans-serif'; ctx.textAlign='center';
+    ctx.fillText(z.label, z.x+z.w/2, FLOOR-16);
+    // highlight current task zone
+    if(z.id===currentTaskZone() && !gameOver){
+      ctx.strokeStyle='#bc8cff'; ctx.lineWidth=2; ctx.strokeRect(z.x-2,FLOOR-62,z.w+4,64);
+    }
+  });
+  // monitor at desk
+  ctx.fillStyle='#444'; ctx.fillRect(150,FLOOR-95,80,35);
+  ctx.fillStyle='#1e3a6a'; ctx.fillRect(155,FLOOR-90,70,25);
+  // coffee machine
+  ctx.fillStyle='#7a5a3a'; ctx.fillRect(395,FLOOR-70,40,55);
+  ctx.fillStyle='#3a2a1a'; ctx.fillRect(400,FLOOR-65,30,20);
+  // CEO desk
+  ctx.fillStyle='#4a3a5a'; ctx.fillRect(640,FLOOR-40,170,30);
+  ctx.fillStyle='#444'; ctx.fillRect(670,FLOOR-80,90,35);
+  ctx.fillStyle='#1e4a3a'; ctx.fillRect(675,FLOOR-75,80,25);
+}
+
+function drawPerson(x,y,pose,dir){
+  const bob = (pose==='walk') ? (Math.sin(Date.now()/120)*2) : 0;
+  y = y + bob;
+  // legs
+  ctx.fillStyle='#005ad6';
+  if(pose==='walk'){
+    ctx.fillRect(x-7,y-2,4,14); ctx.fillRect(x+3,y-4,4,12);
+  } else if(pose==='nap'){
+    ctx.fillRect(x-14,y-4,28,8);
+  } else {
+    ctx.fillRect(x-6,y-2,4,14); ctx.fillRect(x+2,y-2,4,14);
+  }
+  // body
+  ctx.fillStyle='#005ad6'; ctx.fillRect(x-8,y-24,16,22);
+  // arms
+  ctx.fillStyle='#005ad6';
+  if(pose==='type'){ ctx.fillRect(x-12,y-20,4,12); ctx.fillRect(x+8,y-20,4,12); }
+  else if(pose==='type_fast'){ ctx.fillRect(x-14,y-22,5,14); ctx.fillRect(x+9,y-22,5,14); }
+  else if(pose==='drink'){ ctx.fillRect(x-6,y-20,4,10); ctx.fillRect(x+6,y-24,4,12); }
+  else if(pose==='yell'){ ctx.fillRect(x-14,y-26,5,16); ctx.fillRect(x+9,y-26,5,16); }
+  else if(pose==='show'){ ctx.fillRect(x-6,y-20,4,10); ctx.fillRect(x+6,y-24,4,14); }
+  else if(pose==='phone'){ ctx.fillRect(x-6,y-18,4,10); ctx.fillRect(x+4,y-20,4,10); }
+  else if(pose==='eat'){ ctx.fillRect(x-6,y-18,4,10); ctx.fillRect(x+4,y-16,4,8); }
+  else if(pose==='text'){ ctx.fillRect(x-6,y-18,4,8); ctx.fillRect(x+4,y-18,4,8); }
+  else if(pose==='nap'){ /* none */ }
+  else { ctx.fillRect(x-6,y-20,4,12); ctx.fillRect(x+6,y-20,4,12); }
+  // head
+  ctx.fillStyle='#f0c8a8'; ctx.beginPath(); ctx.arc(x,y-32,9,0,Math.PI*2); ctx.fill();
+  // helmet
+  ctx.fillStyle='#ffc83c'; ctx.beginPath(); ctx.arc(x,y-36,10,Math.PI,Math.PI*2); ctx.fill();
+  ctx.fillStyle='#c8a028'; ctx.fillRect(x-10,y-36,x+10?0:0,0); 
+  ctx.fillRect(x-10,y-36,20,4);
+  // eye
+  ctx.fillStyle='#28283c'; ctx.fillRect(x+2*dir,y-33,2,2);
+}
+
+function drawBubble(text,x,y){
+  ctx.font='bold 13px sans-serif';
+  const tw=ctx.measureText(text).width;
+  const bx=x-tw/2-8, by=y-30;
+  ctx.fillStyle='#fff'; ctx.strokeStyle='#aaa'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.roundRect(bx,by,tw+16,22,6); ctx.fill(); ctx.stroke();
+  ctx.fillStyle='#14141e'; ctx.textAlign='center'; ctx.fillText(text,x,by+15);
+  ctx.beginPath(); ctx.moveTo(x-4,by+22); ctx.lineTo(x+4,by+22); ctx.lineTo(x,by+28); ctx.closePath(); ctx.fillStyle='#fff'; ctx.fill();
+}
+
+function update(dt){
+  if(gameOver) return;
+  timeLeft -= dt/1000;
+  if(timeLeft<=0){ timeLeft=0; gameOver=true; msgEl.textContent='Time up! Final score: '+score; }
+  timeEl.textContent=Math.ceil(timeLeft);
+  // movement
+  let dx=0,dy=0;
+  if(keys.ArrowLeft||keys.a||keys.A) dx=-1;
+  if(keys.ArrowRight||keys.d||keys.D) dx=1;
+  if(keys.ArrowUp||keys.w||keys.W) dy=-1;
+  if(keys.ArrowDown||keys.s||keys.S) dy=1;
+  if(dx||dy){
+    const len=Math.hypot(dx,dy);
+    player.x += (dx/len)*player.speed;
+    player.y += (dy/len)*player.speed;
+    player.dir = dx!==0? dx : player.dir;
+    player.pose='walk';
+  } else if(!player.action){ player.pose='stand'; }
+  // bounds
+  player.x=Math.max(20,Math.min(W-20,player.x));
+  player.y=Math.max(FLOOR-80,Math.min(FLOOR,player.y));
+  // action timer
+  if(player.action){
+    player.actionTimer -= dt;
+    if(player.actionTimer<=0){ player.action=null; player.pose='stand'; }
+  }
+}
+
+function interact(){
+  if(gameOver||player.action) return;
+  // find nearest zone within range
+  let near=null;
+  zones.forEach(z=>{
+    const cx=z.x+z.w/2, cy=FLOOR-20;
+    const dist=Math.hypot(player.x-cx, player.y-cy);
+    if(dist<90) near=z;
+  });
+  if(!near){ msgEl.textContent='Move closer to a zone.'; return; }
+  const expected=currentTaskZone();
+  if(near.id!==expected){
+    msgEl.textContent='Not the right task now. Go to '+zones.find(z=>z.id===expected).label;
+    score=Math.max(0,score-2); scoreEl.textContent=score; return;
+  }
+  // perform action
+  const actionMap={desk:'type',kitchen:'coffee',ceo:'show'};
+  // vary action by task index for flavor
+  const flavors=['type','coffee','type_fast','yell','show','phone','eat','text','nap'];
+  const flavor=flavors[taskIndex % flavors.length];
+  player.action=flavor; player.actionTimer=900;
+  player.pose=flavor;
+  const zoneTexts={type:'Type type type...',coffee:'Ahhh coffee',type_fast:'TYPING FAST!!!',yell:'AI ENABLEMEEEEENT!',show:'Look at this!',phone:'blablabla',eat:'nom nom',text:'sent!',nap:'zzz'};
+  msgEl.textContent=zoneTexts[flavor]||'Nice!';
+  score += 10; tasks++;
+  taskIndex++;
+  tasksEl.textContent=tasks;
+  scoreEl.textContent=score;
+  if(tasks>=8){ gameOver=true; msgEl.textContent='All tasks done! Score: '+score; }
+}
+
+let last=performance.now();
+function loop(now){
+  const dt=now-last; last=now;
+  update(dt);
+  // draw
+  ctx.clearRect(0,0,W,H);
+  drawOffice();
+  const pose = player.action ? player.action : (player.pose||'stand');
+  drawPerson(player.x,player.y,pose,player.dir);
+  // action bubble
+  if(player.action){
+    const texts={type:'type...',coffee:'ahh',type_fast:'FAST!',yell:'AI ENABLEMEEEEENT!',show:'look!',phone:'blablabla',eat:'nom',text:'sent!',nap:'zzz'};
+    drawBubble(texts[player.action]||'',player.x,player.y-46);
+  }
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+// timer
+setInterval(()=>{ if(!gameOver){ timeLeft-=1; if(timeLeft<=0){timeLeft=0;gameOver=true;msgEl.textContent='Time up! Score: '+score;} timeEl.textContent=Math.ceil(timeLeft);} },1000);
+</script>
+</body>
+</html>
