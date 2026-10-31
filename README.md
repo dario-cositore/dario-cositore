@@ -31,6 +31,7 @@ Three principles guide everything I ship:
 ## Now
 
 - 🔭 Building **[Elitza](https://github.com/dario-cositore/elitza-code)**, a bring-your-own-key AI agent for the terminal, browser, and desktop (memory, personas, skills, MCP).
+- 🛡️ Building **[AKLI](https://github.com/dario-cositore/api-key-leak-intercept)** (API Key Leak Intercept), a Chrome extension that warns you before you paste an API key, secret, or PII into any AI chat. Detection runs locally; free tier is open source.
 - 🧪 Benchmarking frontier models on real business workflows for a domain-expert panel (13+ models so far).
 - 📝 Writing technical breakdowns at [dariocositore.com](https://dariocositore.com).
 
@@ -56,6 +57,7 @@ Three principles guide everything I ship:
 | [**website-to-skill**](https://github.com/dario-cositore/website-to-skill) | Turn any website into a Hermes Agent Skill or OpenClaw Agent Package. | Python |
 | [**durable-workflows**](https://github.com/dario-cositore/durable-workflows) | Mistral-style durable execution for OpenClaw. Tasks survive crashes and restarts. | JavaScript |
 | [**url-to-markdown-rust**](https://github.com/dario-cositore/url-to-markdown-rust) | Website to Markdown converter. | Rust |
+| [**api-key-leak-intercept**](https://github.com/dario-cositore/api-key-leak-intercept) | Chrome extension that warns before you paste an API key, secret, or PII into any AI chat. Detection runs locally. | JavaScript |
 | [**elitza-workshop**](https://github.com/dario-cositore/elitza-workshop) | Unified agent installer and hub for OpenClaw and Hermes Agent. | JavaScript |
 | [**OpenConnect**](https://github.com/dario-cositore/OpenConnect) | Turn any webpage into an MCP connector. *(on hold)* | Python |
 
