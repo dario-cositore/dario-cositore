@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/dario-cositore/dario-cositore/main/assets/miner.gif" alt="miner digging blocks" width="800" />
+  <img src="https://raw.githubusercontent.com/dario-cositore/dario-cositore/main/assets/office.gif" alt="office life" width="900" />
 </p>
 
 <p align="center">
