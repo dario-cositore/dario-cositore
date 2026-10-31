@@ -94,5 +94,13 @@ Open to collaborations, consulting, and interesting problems around AI agents, M
 </p>
 
 <p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dario-cositore/dario-cositore/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/dario-cositore/dario-cositore/output/github-contribution-grid-snake.svg" />
+    <img alt="contribution snake" src="https://raw.githubusercontent.com/dario-cositore/dario-cositore/output/github-contribution-grid-snake.svg" />
+  </picture>
+</p>
+
+<p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B3558,100:005AD6&height=100&section=footer" alt="footer" />
 </p>
