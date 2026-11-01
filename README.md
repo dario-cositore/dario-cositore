@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Good code is its own best documentation." — Steve McConnell
+> "Debugging is twice as hard as writing the code in the first place." — Brian Kernighan
 <!--QUOTE-END-->
 
 ## GitHub stats
