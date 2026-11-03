@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Good code is its own best documentation." — Steve McConnell
+> "Simplicity is the soul of efficiency." — Austin Freeman
 <!--QUOTE-END-->
 
 ## GitHub stats
