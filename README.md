@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Debugging is twice as hard as writing the code in the first place." — Brian Kernighan
+> "Make it work, make it right, make it fast." — Kent Beck
 <!--QUOTE-END-->
 
 ## GitHub stats
