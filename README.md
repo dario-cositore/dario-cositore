@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Make it work, make it right, make it fast." — Kent Beck
+> "Programs must be written for people to read, and only incidentally for machines to execute." — Harold Abelson
 <!--QUOTE-END-->
 
 ## GitHub stats
