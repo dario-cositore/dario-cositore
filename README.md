@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Programs must be written for people to read, and only incidentally for machines to execute." — Harold Abelson
+> "Good code is its own best documentation." — Steve McConnell
 <!--QUOTE-END-->
 
 ## GitHub stats
