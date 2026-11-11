@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Good code is its own best documentation." — Steve McConnell
+> "The most important property of a program is whether it accomplishes the intention of its user." — C.A.R. Hoare
 <!--QUOTE-END-->
 
 ## GitHub stats
