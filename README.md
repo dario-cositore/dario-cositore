@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "The most important property of a program is whether it accomplishes the intention of its user." — C.A.R. Hoare
+> "Any fool can write code that a computer can understand. Good programmers write code that humans can understand." — Martin Fowler
 <!--QUOTE-END-->
 
 ## GitHub stats
