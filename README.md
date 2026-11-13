@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Any fool can write code that a computer can understand. Good programmers write code that humans can understand." — Martin Fowler
+> "Premature optimization is the root of all evil." — Donald Knuth
 <!--QUOTE-END-->
 
 ## GitHub stats
