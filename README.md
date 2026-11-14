@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Premature optimization is the root of all evil." — Donald Knuth
+> "The best error message is the one that never shows up." — Thomas Fuchs
 <!--QUOTE-END-->
 
 ## GitHub stats
