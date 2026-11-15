@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "The best error message is the one that never shows up." — Thomas Fuchs
+> "Any fool can write code that a computer can understand. Good programmers write code that humans can understand." — Martin Fowler
 <!--QUOTE-END-->
 
 ## GitHub stats
