@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "The only way to learn a new programming language is by writing programs in it." — Dennis Ritchie
+> "Debugging is twice as hard as writing the code in the first place." — Brian Kernighan
 <!--QUOTE-END-->
 
 ## GitHub stats
