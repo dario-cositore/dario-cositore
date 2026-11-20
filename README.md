@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Good code is its own best documentation." — Steve McConnell
+> "Premature optimization is the root of all evil." — Donald Knuth
 <!--QUOTE-END-->
 
 ## GitHub stats
