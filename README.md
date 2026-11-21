@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Premature optimization is the root of all evil." — Donald Knuth
+> "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday's code." — Dan Salomon
 <!--QUOTE-END-->
 
 ## GitHub stats
