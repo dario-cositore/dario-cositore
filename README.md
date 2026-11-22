@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday's code." — Dan Salomon
+> "Software is a great combination between artistry and engineering." — Bill Gates
 <!--QUOTE-END-->
 
 ## GitHub stats
