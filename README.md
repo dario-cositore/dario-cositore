@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Software is a great combination between artistry and engineering." — Bill Gates
+> "Fix the cause, not the symptom." — Steve Maguire
 <!--QUOTE-END-->
 
 ## GitHub stats
