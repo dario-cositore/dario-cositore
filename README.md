@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Measuring programming progress by lines of code is like measuring aircraft building progress by weight." — Bill Gates
+> "Fix the cause, not the symptom." — Steve Maguire
 <!--QUOTE-END-->
 
 ## GitHub stats
