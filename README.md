@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Fix the cause, not the symptom." — Steve Maguire
+> "The best error message is the one that never shows up." — Thomas Fuchs
 <!--QUOTE-END-->
 
 ## GitHub stats
