@@ -68,7 +68,7 @@ Three principles guide everything I ship:
 ## Quote of the day
 
 <!--QUOTE-START-->
-> "Measuring programming progress by lines of code is like measuring aircraft building progress by weight." — Bill Gates
+> "The only way to learn a new programming language is by writing programs in it." — Dennis Ritchie
 <!--QUOTE-END-->
 
 ## GitHub stats
